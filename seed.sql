@@ -1,0 +1,4 @@
+insert into SCHOOL (SchoolID, Name, city, score) values ("1","EFREI Paris", "Paris", 78),("2","UCI","Irvine",89);
+insert into COURSES (CourseID, Topic, Description, duration) values ("1","Mechanical engineering","Introduction to robotic","02:00"),("2","Java programming","Coding of multiples programms","03:00"),("3","French","Basic language skills","01:30"),("4","Mathematics for cryptography","Introduction to arithmetics","02:30");
+insert into CLUBS (ClubID,SchoolID,Name,Sport) values ("1","2","UCI Fencing","Fencing"),("2","2","UCI Basket","Basketball"),("3","1","Efrei'scalade","Climning"),("4","1","Natat","Swimming");
+insert into STUDENTS(StudentID,Firstname,lastname,age,SchoolID,ClubID,CourseID) values ("1","Brancolini","Lucas",22,"1","1","1"),("2","Le","Julian",19,"2","4","2"),("3","Chang","Fanny",19,"2","2","4"),("4","Machard","Paul",21,"1","2","4"),("5","Billebaut","Arthur",20,"2","4","2");
