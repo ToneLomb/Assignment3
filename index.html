@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    
+    <form name="sql" onsubmit="return false" action="#" method="post">
+        <div class = "card">
+            <div class="create">
+                <label>Club name</label>
+                <input class ="name" type="text"></input>
+                <label>Sport</label>
+                <input class ="sport" type="text"></input>
+                <button class="btnCreate">Create Club at UCI</button>
+            </div>
+            <div class = "read">
+                <label>Firstname</label>
+                <input class ="firstname" type="text"></input>
+                <button class="btnRead">Get Club by firstname</button>
+            </div>
+            <div class = "update">
+                <label>StudentID (1 to 5)</label>
+                <input class ="id" type="text"></input>
+                <label>Firstname</label>
+                <input class ="firstname" type="text"></input>
+                <label>Lastname</label>
+                <input class ="lastname" type="text"></input>
+                <label>Age</label>
+                <input class ="age" type="text"></input>
+                <label>SchoolID (1 or 2)</label>
+                <input class ="school" type="text"></input>
+                <button class="btnUpdate">Update Student Info</button>
+            </div>
+            <div class = "delete">
+                <label>Club ID</label>
+                <input class ="id" type="text"></input>
+                <button class="btnDelete">Delete club by ID</button>
+            </div>
+        </div>
+    </form>
+    
+    <script>
+        const btnFirstname = document.querySelector('.btnRead')
+        btnFirstname.addEventListener('click', () => { 
+            getFirstname();
+        });
+
+        function getFirstname(){
+            const firstname = document.querySelector('.read .firstname');
+            location.href='/readclub/' + firstname.value;
+        }
+
+        const btnCreate = document.querySelector('.btnCreate');
+        btnCreate.addEventListener('click', () => {
+            getClubInfo();
+        })
+
+        function getClubInfo(){
+            const name = document.querySelector('.create .name').value
+            const sport = document.querySelector('.create .sport').value
+            location.href='/createclub/'+name+'/'+sport;
+        }
+
+        const btnUpdate = document.querySelector('.btnUpdate');
+        btnUpdate.addEventListener('click', () =>{
+            getStudentInfo()
+        })
+            
+        function getStudentInfo(){
+            const studentID = document.querySelector('.update .id').value
+            const firstname = document.querySelector('.update .firstname').value
+            const lastname = document.querySelector('.update .lastname').value
+            const age = document.querySelector('.update .age').value
+            const schoolID = document.querySelector('.update .school').value
+            location.href = '/updatestudent/' + studentID + '/' + firstname + '/' + lastname + '/'+ age + '/' + schoolID;
+
+        }
+
+        const btnDelete = document.querySelector('.btnDelete')
+        btnDelete.addEventListener('click', () => {
+            deleteClub();
+        })
+
+        function deleteClub(){
+            const clubID = document.querySelector('.delete .id').value
+            location.href = '/deleteclub/' + clubID;
+        }
+
+    </script>
+
+</body>
+</html>
